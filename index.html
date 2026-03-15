@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- CERINTA 1: Doctype & lang -->
+    <meta charset="UTF-8">
+    <!-- CERINTA 2: Meta tags -->
+    <meta name="author" content="OnlyMerch Team">
+    <meta name="keywords" content="funny t-shirts, hoodies, meme apparel, pop culture clothing">
+    <meta name="description" content="Online store for funny t-shirts and hoodies with unique designs">
+    <meta name="msapplication-TileColor" content="#ff00ff">
+    <title>OnlyMerch - Funny T-Shirts & Hoodies</title>
+    
+    <!-- CERINTA 3: Favicon -->
+    <link rel="icon" type="image/png" href="/resources/ico/favicon-96x96.png" sizes="96x96" >
+    <link rel="icon" type="image/svg+xml" href="/resources/ico/favicon.svg" >
+    <link rel="shortcut icon" href="/resources/ico/favicon.ico" >
+    <link rel="apple-touch-icon" sizes="180x180" href="/resources/ico/apple-touch-icon.png" >
+    <meta name="apple-mobile-web-app-title" content="OnlyMerch" >
+    <link rel="manifest" href="/resources/ico/site.webmanifest" >
+</head>
+
+<body>
+    <!-- CERINTA 4: Header -->
+    <header>
+        <h1>OnlyMerch</h1>
+        
+        <!-- CERINTA 6: Navigation -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a>
+                    <ul>
+                        <li><a href="#banner">Banner</a></li>
+                        <li><a href="#collections">Collections</a></li>
+                    </ul>
+                </li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="newsletter.html">Newsletter</a></li>
+                <li><a href="contact.html">Contact & FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CERINTA 4: Main -->
+    <main>
+        <!-- CERINTA 5: Nested sections -->
+        <section id="banner">
+            <h2>New Collections</h2>
+            <!-- CERINTA 8: Responsive image -->
+            <figure>
+                <picture>
+                    <source media="(max-width: 600px)" srcset="resources/img/banner-small.png">
+                    <source media="(max-width: 1200px)" srcset="resources/img/banner-medium.png">
+                    <img src="/resources/img/banner-big.png" alt="Featured collections banner">
+                </picture>
+                <figcaption>Our Autumn Collection</figcaption>
+            </figure>
+            
+            <!-- CERINTA 7: Content grouping -->
+            <article>
+                <h3>Pop Culture T-Shirts</h3>
+                <p>Discover our most <em>hilarious</em> designs inspired by:</p>
+                <ul>
+                    <li>Classic movies</li>
+                    <li>TV shows</li>
+                    <li>Internet memes</li>
+                </ul>
+            </article>
+
+            <!-- BONUS 2: Image Map -->
+            <figure>
+                <img src="resources/img/banner-big.png" alt="Collections" usemap="#bannerMap">
+                <map name="bannerMap">
+                    <area shape="rect" coords="0,0,375,500" href="#tshirts" alt="T-Shirts Section">
+                    <area shape="rect" coords="376,0,750,500" href="#hoodies" alt="Hoodies Section">
+                </map>
+                <figcaption>Click different collection areas</figcaption>
+            </figure>
+            
+            <!-- BONUS 1: MathML Formula -->
+            <div class="formula">
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <mrow>
+                        <mi>H</mi>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mrow><mi>L</mi><mo>+</mo><mi>D</mi></mrow>
+                            <mi>T</mi>
+                        </mfrac>
+                    </mrow>
+                </math>
+                <p>Where H = Humor Factor, L = Laughs, D = Design Quality, T = Time</p>
+            </div>
+            <!-- BONUS 3: PDF Embed -->
+        <section id="catalog">
+            <h2>Product Catalog</h2>
+            <object data="resources/catalog.pdf" type="application/pdf" width="300" height="500">
+                <p>Unable to display PDF. <a href="resources/catalog.pdf">Download instead</a></p>
+            </object>
+        </section>
+
+        </section>
+
+        <!-- CERINTA 10: Special elements -->
+        <div id="deals">
+            <details>
+                <summary>Deal of the Day</summary>
+                <p><strong>WARNING:</strong> Offer valid today only! <s>$24.99</s> <ins>$19.99</ins></p>
+            </details>
+            
+            <blockquote>
+                <p><q>The best store for funny t-shirts!</q> - <cite>Satisfied Customer</cite></p>
+            </blockquote>
+            
+            <p><abbr title="Search Engine Optimization">SEO</abbr> optimized for relevant keywords</p>
+        </div>
+
+        <!-- CERINTA 11: Special links -->
+        <div>
+            <a href="https://www.google.com" target="_blank" rel="noopener">Design Inspiration </a>
+            <a href="resurse/catalog.pdf" download>Download Catalog </a>
+            
+            <iframe name="videoFrame" src="https://www.youtube.com/embed/B-ytMSuwbf8?si=vSPWOQPdV0OP1C7G"></iframe>
+            <a href="https://www.youtube.com/embed/B-ytMSuwbf8?si=vSPWOQPdV0OP1C7G" target="videoFrame">Video 1</a>
+            <a href="https://www.youtube.com/embed/qyomWr_C_jA?si=S9hqlJ4GBaOIP60W" target="videoFrame">Video 2</a>
+        </div>
+    </main>
+
+    <!-- CERINTA 4: Footer -->
+    <footer>
+        <!-- CERINTA 13: Contact info -->
+        <address>
+            <a href="tel:+40737405577">+40737 40 55 77</a><br>
+            <a href="https://maps.app.goo.gl/PdiJG1KeRmcSJbsT9" target="_blank">University Street 1</a><br>
+            <a href="mailto:alex.pricop203@gmail.com">contact@onlymerch.ro</a><br>
+            <a href="whatsapp://send?phone=+40737405577">Chat on WhatsApp</a>
+        </address>
+        <!-- BONUS 4: Google Maps Iframe -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d712.2210749543317!2d26.09894296967583!3d44.43553549819225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFaculty%20of%20Mathematics%20and%20Computer%20Science!5e0!3m2!1sen!2sro!4v1741653141701!5m2!1sen!2sro" 
+                width="400" 
+                height="300" 
+                style="border:0;"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <!-- CERINTA 14: Copyright -->
+        <small>
+            &copy; <time datetime="2025-03-05">Mar 05, 2025</time> OnlyMerch
+        </small>
+        
+        <!-- CERINTA 11: Back to top -->
+        <a href="#">Back to Top</a>
+    </footer>
+</body>
+</html>
