@@ -3,6 +3,7 @@
 <head>
     <!-- CERINTA 1: Doctype & lang -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CERINTA 2: Meta tags -->
     <meta name="author" content="OnlyMerch Team">
     <meta name="keywords" content="funny t-shirts, hoodies, meme apparel, pop culture clothing">
@@ -17,21 +18,30 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/resources/ico/apple-touch-icon.png" >
     <meta name="apple-mobile-web-app-title" content="OnlyMerch" >
     <link rel="manifest" href="/resources/ico/site.webmanifest" >
+    
+    <!-- ETAPA 2: schema-cromatica - CSS cu variabile culori -->
+    <link rel="stylesheet" href="resources/css/style.css">
+    <!-- Design rudimentar: Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome icons (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
     <!-- CERINTA 4: Header -->
     <header>
-        <h1>OnlyMerch</h1>
+        <h1><i class="fa-solid fa-shirt fa-fw"></i> OnlyMerch</h1>
         
         <!-- CERINTA 6: Navigation -->
         <nav>
             <ul>
                 <li><a href="index.html">Home</a>
                     <ul>
-                        <li><a href="#banner">Banner</a></li>
-                        <li><a href="#collections">Collections</a></li>
-                        <li><a href="#evenimente">Evenimente</a></li>
+                        <li><a href="#zone1">Banner</a></li>
+                        <li><a href="#zone2">Tabel</a></li>
+                        <li><a href="#zone8">Evenimente</a></li>
                     </ul>
                 </li>
                 <li><a href="shop.html">Shop</a></li>
@@ -41,16 +51,14 @@
         </nav>
     </header>
 
-    <!-- CERINTA 4: Main -->
-    <main>
-        <!-- CERINTA 5: Nested sections -->
-        <section id="banner">
-            <!-- CERINTA: hgroup - heading cu subtitlu -->
+    <!-- CERINTA 4: Main - ETAPA 2: layout-responsive grid -->
+    <main class="layout-grid">
+        <!-- Zona 1: Prezentare / poster (Z-pattern - imagini + text) -->
+        <section id="zone1" class="zone zone1">
             <hgroup>
                 <h2>New Collections</h2>
                 <h3>Discover our latest meme apparel and pop culture hoodies</h3>
             </hgroup>
-            <!-- CERINTA 8: Responsive image (title = descriere scurta la hover) -->
             <figure>
                 <picture>
                     <source media="(max-width: 600px)" srcset="resources/img/banner-small.png">
@@ -59,8 +67,6 @@
                 </picture>
                 <figcaption>Our Autumn Collection</figcaption>
             </figure>
-            
-            <!-- CERINTA 7: Content grouping -->
             <article>
                 <h3>Pop Culture T-Shirts</h3>
                 <p>Discover our most <em>hilarious</em> designs inspired by:</p>
@@ -70,18 +76,106 @@
                     <li>Internet memes</li>
                 </ul>
             </article>
-
-            <!-- BONUS 2: Image Map -->
             <figure>
                 <img src="resources/img/banner-big.png" alt="Collections" usemap="#bannerMap">
                 <map name="bannerMap">
-                    <area shape="rect" coords="0,0,375,500" href="#tshirts" alt="T-Shirts Section">
-                    <area shape="rect" coords="376,0,750,500" href="#hoodies" alt="Hoodies Section">
+                    <area shape="rect" coords="0,0,800,1000" href="#tshirts" alt="T-Shirts Section">
+                    <area shape="rect" coords="801,0,1600,1000" href="#hoodies" alt="Hoodies Section">
                 </map>
                 <figcaption>Click different collection areas</figcaption>
             </figure>
-            
-            <!-- BONUS 1: MathML Formula -->
+        </section>
+
+        <!-- Zona 3: Calendar evenimente - placeholder -->
+        <section id="zone3" class="zone zone3">
+            <h2>Calendar</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </section>
+
+        <!-- Zona 2: Tabel - ETAPA 2: stilizare-tabel -->
+        <section id="zone2" class="zone zone2">
+            <div class="table-scroll-container">
+            <table class="styled-table">
+                <caption>Top vandute produse - funny t-shirts si hoodies</caption>
+                <thead>
+                    <tr>
+                        <th>Produs</th>
+                        <th>Categorie</th>
+                        <th>Vandute</th>
+                        <th>Pret (RON)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Meme Classic</td>
+                        <td>Meme apparel</td>
+                        <td>156</td>
+                        <td>79</td>
+                    </tr>
+                    <tr>
+                        <td>Pop Culture Hero</td>
+                        <td rowspan="2">Pop culture clothing</td>
+                        <td>134</td>
+                        <td>89</td>
+                    </tr>
+                    <tr>
+                        <td>TV Show Quote</td>
+                        <td>98</td>
+                        <td>79</td>
+                    </tr>
+                    <tr>
+                        <td>Hoodie Premium</td>
+                        <td>Hoodies</td>
+                        <td>87</td>
+                        <td>129</td>
+                    </tr>
+                    <tr>
+                        <td>Funny Cats</td>
+                        <td>Meme apparel</td>
+                        <td>76</td>
+                        <td>69</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Total unitati</td>
+                        <td>551</td>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+        </section>
+
+        <!-- Zona 4: Anunturi - placeholder -->
+        <section id="zone4" class="zone zone4">
+            <h2>Anunturi</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.</p>
+        </section>
+
+        <!-- Zona 8: Conținut divers (evenimente, oferte, video, formula) -->
+        <section id="zone8" class="zone zone8">
+            <h2>Evenimente & Oferte</h2>
+            <section id="evenimente">
+                <h3>Upcoming Events</h3>
+                <ol>
+                    <li><time datetime="2026-03-30T12:00">30 martie, ora 12:00</time> - <b>Launch Pop Culture Hoodies</b> - Lansam colectia noua de hoodies inspirata din filme si seriale. Reducere 15% in prima zi.</li>
+                    <li><time datetime="2026-04-15T14:00">15 aprilie, ora 14:00</time> - <b>Meme T-Shirts Flash Sale</b> - Doar 3 ore de reduceri pana la 30% pe toate tricourile cu meme-uri.</li>
+                    <li><time datetime="2026-04-20T10:00">20 aprilie, ora 10:00</time> - <b>April Fools Collection</b> - Designuri speciale limitate. Oferim cadou un poster la comenzi peste 50 RON.</li>
+                </ol>
+            </section>
+            <div id="deals">
+                <details>
+                    <summary>Deal of the Day</summary>
+                    <p><strong>WARNING:</strong> Offer valid today only! <s>$24.99</s> <ins>$19.99</ins></p>
+                </details>
+                <details>
+                    <summary><i class="fa-solid fa-truck fa-bounce fa-fw"></i> Free Shipping</summary>
+                    <p>Comanda gratuita la achizitii peste 150 RON pentru funny t-shirts si hoodies.</p>
+                </details>
+            </div>
+            <blockquote>
+                <p><q>The best store for funny t-shirts!</q> - <cite>Satisfied Customer</cite></p>
+            </blockquote>
             <div class="formula">
                 <math xmlns="http://www.w3.org/1998/Math/MathML">
                     <mrow>
@@ -95,116 +189,55 @@
                 </math>
                 <p>Where H = Humor Factor, L = Laughs, D = Design Quality, T = Time</p>
             </div>
-            <!-- BONUS 3: PDF Embed -->
-        <section id="collections">
-            <h3>Product Catalog</h3>
-            <object data="resources/catalog.pdf" type="application/pdf" width="300" height="500">
-                <p>Unable to display PDF. <a href="resources/catalog.pdf">Download instead</a></p>
-            </object>
-        </section>
-
-        </section>
-
-        <!-- CERINTA: Sectiune evenimente cu time, datetime, lista ol, nume in b -->
-        <section id="evenimente">
-            <h2>Upcoming Events</h2>
-            <ol>
-                <li><time datetime="2025-03-20T12:00">20 martie, ora 12:00</time> - <b>Launch Pop Culture Hoodies</b> - Lansam colectia noua de hoodies inspirata din filme si seriale. Reducere 15% in prima zi.</li>
-                <li><time datetime="2025-03-25T14:00">25 martie, ora 14:00</time> - <b>Meme T-Shirts Flash Sale</b> - Doar 3 ore de reduceri pana la 30% pe toate tricourile cu meme-uri.</li>
-                <li><time datetime="2025-04-01T10:00">1 aprilie, ora 10:00</time> - <b>April Fools Collection</b> - Designuri speciale limitate. Oferim cadou un poster la comenzi peste 50 RON.</li>
-            </ol>
-        </section>
-
-        <!-- CERINTA 10: Special elements -->
-        <div id="deals">
-            <details>
-                <summary>Deal of the Day</summary>
-                <p><strong>WARNING:</strong> Offer valid today only! <s>$24.99</s> <ins>$19.99</ins></p>
-            </details>
-            <details>
-                <summary>Free Shipping</summary>
-                <p>Comanda gratuita la achizitii peste 150 RON pentru funny t-shirts si hoodies.</p>
-            </details>
-            
-            <blockquote>
-                <p><q>The best store for funny t-shirts!</q> - <cite>Satisfied Customer</cite></p>
-            </blockquote>
-            
-            <p><abbr title="Search Engine Optimization">SEO</abbr> optimized for relevant keywords</p>
-            
-            <!-- CERINTA: meter x2 - unul sub low, unul peste high -->
-            <p>Stoc hoodies (limita joasa): <meter value="2" min="0" max="100" low="10" high="80" optimum="50">2/100</meter></p>
-            <p>Rating clienti (peste limita): <meter value="92" min="0" max="100" low="30" high="70" optimum="90">92/100</meter></p>
-        </div>
-
-        <!-- CERINTA 11: Special links -->
-        <div>
-            <a href="https://www.google.com" target="_blank" rel="noopener">Design Inspiration</a>
-            <!-- Link extern cu #fragment, text=URL, wbr pentru taiere rand -->
-            <a href="https://www.w3.org/TR/html52/document-metadata#the-link-element">https://www.w3.org/TR/html52/document<wbr>-metadata#the-link-element</a>
-            <!-- Link cu imagine: click deschide imaginea mare in tab -->
-            <a href="resources/img/banner-big.png"><img src="resources/img/banner-small.png" alt="Vezi banner mare" width="120" height="80" title="Click pentru imagine marita"></a>
-            <!-- Download cu atribut download=nume_nou (alt decat original) -->
-            <a href="resources/catalog.pdf" download="catalog_onlymerch.pdf">Download Catalog</a>
-            
             <div>
-                <!-- Linkuri deasupra iframe: 2 alte video + 1 acelasi cu iframe -->
-                <a href="https://www.youtube.com/embed/B-ytMSuwbf8?si=vSPWOQPdV0OP1C7G" target="videoFrame">Video (in iframe)</a>
-                <a href="https://www.youtube.com/embed/qyomWr_C_jA?si=S9hqlJ4GBaOIP60W" target="videoFrame">Video 2</a>
-                <a href="https://www.youtube.com/embed/dQw4w9WgXcQ" target="videoFrame">Video 3</a>
+                <a href="https://www.google.com" target="_blank" rel="noopener">Design Inspiration</a>
+                <a href="https://www.w3.org/TR/html52/document-metadata#the-link-element">https://www.w3.org/TR/html52/document<wbr>-metadata#the-link-element</a>
+                <a href="resources/img/banner-big.png"><img src="resources/img/banner-small.png" alt="Vezi banner mare" width="120" height="80" title="Click pentru imagine marita"></a>
+                <a href="resources/catalog.pdf" download="catalog_onlymerch.pdf">Download Catalog</a>
             </div>
-            <iframe name="videoFrame" src="https://www.youtube.com/embed/B-ytMSuwbf8?si=vSPWOQPdV0OP1C7G"></iframe>
-        </div>
-        
-        <!-- CERINTA: Tabel thead/tbody/tfoot, 5+ randuri, 4 coloane, rowspan/colspan, caption -->
-        <table>
-            <caption>Top vandute produse - funny t-shirts si hoodies</caption>
-            <thead>
-                <tr>
-                    <th>Produs</th>
-                    <th>Categorie</th>
-                    <th>Vandute</th>
-                    <th>Pret (RON)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Meme Classic</td>
-                    <td>Meme apparel</td>
-                    <td>156</td>
-                    <td>79</td>
-                </tr>
-                <tr>
-                    <td>Pop Culture Hero</td>
-                    <td rowspan="2">Pop culture clothing</td>
-                    <td>134</td>
-                    <td>89</td>
-                </tr>
-                <tr>
-                    <td>TV Show Quote</td>
-                    <td>98</td>
-                    <td>79</td>
-                </tr>
-                <tr>
-                    <td>Hoodie Premium</td>
-                    <td>Hoodies</td>
-                    <td>87</td>
-                    <td>129</td>
-                </tr>
-                <tr>
-                    <td>Funny Cats</td>
-                    <td>Meme apparel</td>
-                    <td>76</td>
-                    <td>69</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3">Total unitati</td>
-                    <td>551</td>
-                </tr>
-            </tfoot>
-        </table>
+            <!-- ETAPA 2: stilizare-taburi - linkuri catre iframe ca taburi, flexbox -->
+            <div class="video-tabs-container">
+                <nav class="video-tabs">
+                    <a href="https://www.youtube.com/embed/B-ytMSuwbf8?si=vSPWOQPdV0OP1C7G" target="videoFrame" class="tab-active">Video 1</a>
+                    <a href="https://www.youtube.com/embed/qyomWr_C_jA?si=S9hqlJ4GBaOIP60W" target="videoFrame">Video 2</a>
+                    <a href="https://www.youtube.com/embed/dQw4w9WgXcQ?si=x_KoLSlT-yKxoB29" target="videoFrame">Video 3</a>
+                </nav>
+                <div class="iframe-tab-content">
+                    <div class="iframe-16-9">
+                        <iframe name="videoFrame" src="https://www.youtube.com/embed/B-ytMSuwbf8?si=vSPWOQPdV0OP1C7G"></iframe>
+                    </div>
+                </div>
+            </div>
+            <section id="collections">
+                <h3>Product Catalog</h3>
+                <div class="catalog-preview-9-16">
+                    <object data="resources/catalog.pdf" type="application/pdf">
+                        <p>Unable to display PDF. <a href="resources/catalog.pdf">Download instead</a></p>
+                    </object>
+                </div>
+            </section>
+            <p><abbr title="Search Engine Optimization">SEO</abbr> optimized for relevant keywords</p>
+            <p>Stoc hoodies: <meter value="2" min="0" max="100" low="10" high="80" optimum="50">2/100</meter></p>
+            <p>Rating clienti: <meter value="92" min="0" max="100" low="30" high="70" optimum="90">92/100</meter></p>
+        </section>
+
+        <!-- Zona 7: Date site/server - placeholder -->
+        <section id="zone7" class="zone zone7">
+            <h2>Date site</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit.</p>
+        </section>
+
+        <!-- Zona 5: Utilizatori online - placeholder -->
+        <section id="zone5" class="zone zone5">
+            <h2>Online</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </section>
+
+        <!-- Zona 6: Date utilizator si statistici - placeholder -->
+        <section id="zone6" class="zone zone6">
+            <h2>Statistici</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod.</p>
+        </section>
     </main>
 
     <!-- CERINTA 4: Footer -->
@@ -231,11 +264,17 @@
 
         <!-- CERINTA 14: Copyright -->
         <small>
-            &copy; <time datetime="2025-03-05">5 martie 2025</time> OnlyMerch
+            &copy; <time datetime="2026-03-22">22 martie 2026</time> OnlyMerch
         </small>
         
-        <!-- CERINTA 11: Back to top -->
-        <a href="#">Back to Top</a>
     </footer>
+    
+    <!-- ETAPA 2: link-top - buton fix dreapta jos, fara imagini -->
+    <a href="#" class="link-top" title="Du-te la inceputul paginii" aria-label="Inapoi sus">
+        <span class="link-top-brackets">
+            <span class="link-top-triangle"></span>
+        </span>
+        <span class="link-top-tooltip">Du-te la inceputul paginii</span>
+    </a>
 </body>
 </html>

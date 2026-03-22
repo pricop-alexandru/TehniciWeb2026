@@ -1,0 +1,587 @@
+/*
+ * ETAPA 2 - schema-cromatica + layout-responsive
+ * Toate culorile folosesc doar variabilele definite in body
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+/* Fara scrollbar orizontal pe viewport */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Font sizing: baza pe html, restul in rem; transition la schimbare viewport */
+html {
+    font-size: 16px;
+    transition: font-size 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 17px;
+    }
+}
+
+@media (min-width: 1200px) {
+    html {
+        font-size: 18px;
+    }
+    body {
+        --spacing-page: 3rem;
+        --grid-gap: 1.5rem;
+        --zone-padding: 1.25rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    body {
+        --spacing-page: 1.25rem;
+        --grid-gap: 1rem;
+        --zone-padding: 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        --spacing-page: 0.5rem;
+        --grid-gap: 0.75rem;
+        --zone-padding: 0.75rem;
+    }
+}
+
+/* Animatii dezactivate pe ecran mic */
+@media (max-width: 767px) {
+    html {
+        transition: none;
+    }
+    .fa-bounce {
+        animation: none !important;
+    }
+}
+
+/* Variabile schema cromatica - 5 culori din Adobe Color Wheel */
+body {
+    /* Culorile de baza (minim 5) */
+    --color-primary: #754DF7;      /* centru - principala */
+    --color-primary-light: #704AEF; /* stanga 1 */
+    --color-mid: #6040CD;          /* stanga 2 */
+    --color-dark: #5035AB;         /* dreapta 1 */
+    --color-darker: #48348A;       /* dreapta 2 */
+    
+    /* Variabile semantice (in armonie cu paleta) */
+    --color-bg: #faf9fd;
+    --color-bg-alt: #f0ecfc;
+    --color-text: var(--color-darker);
+    --color-text-muted: var(--color-mid);
+    --color-border: var(--color-mid);
+    --color-highlight: var(--color-primary);
+    --color-highlight-bg: rgba(117, 77, 247, 0.12);
+    
+    /* Design rudimentar: spatiere pagina, gap, padding zone */
+    --spacing-page: 2rem;
+    --grid-gap: 1.25rem;
+    --zone-padding: 1rem;
+    
+    /* Aplicare pe body */
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Nunito', sans-serif;
+}
+
+header {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    border-bottom: 3px solid var(--color-dark);
+    padding: var(--zone-padding) var(--spacing-page);
+    border-radius: 0 0 0.5rem 0.5rem;
+    box-shadow: 0 2px 8px rgba(72, 53, 138, 0.2);
+}
+
+header a {
+    color: var(--color-bg);
+}
+
+header a:hover {
+    color: var(--color-highlight-bg);
+}
+
+/* ETAPA 2: layout-responsive - grid cu grid-template-areas */
+main.layout-grid {
+    display: grid;
+    gap: var(--grid-gap);
+    padding: var(--zone-padding) var(--spacing-page);
+    max-width: 100%;
+    overflow-x: hidden;
+    min-width: 0;
+}
+
+/* Ecran mare: zona1 | zona3 zona2 zona4 | zona8 | zona5 zona7 zona6 (zona2, zona7 centru mare) */
+@media (min-width: 1200px) {
+    main.layout-grid {
+        grid-template-areas:
+            "zone1 zone1 zone1"
+            "zone3 zone2 zone4"
+            "zone8 zone8 zone8"
+            "zone5 zone7 zone6";
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+}
+
+/* Ecran mediu: forma diferita - 2 coloane, zone rearanjate */
+@media (min-width: 768px) and (max-width: 1199px) {
+    main.layout-grid {
+        grid-template-areas:
+            "zone1 zone1"
+            "zone2 zone2"
+            "zone3 zone4"
+            "zone8 zone8"
+            "zone7 zone7"
+            "zone5 zone6";
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Ecran mic: fara coloane, stack vertical */
+@media (max-width: 767px) {
+    main.layout-grid {
+        grid-template-areas:
+            "zone1"
+            "zone2"
+            "zone3"
+            "zone4"
+            "zone8"
+            "zone7"
+            "zone5"
+            "zone6";
+        grid-template-columns: 1fr;
+    }
+}
+
+.zone {
+    min-width: 0;
+}
+
+.zone1 { grid-area: zone1; }
+.zone2 { grid-area: zone2; }
+.zone3 { grid-area: zone3; }
+.zone4 { grid-area: zone4; }
+.zone5 { grid-area: zone5; }
+.zone6 { grid-area: zone6; }
+.zone7 { grid-area: zone7; }
+.zone8 { grid-area: zone8; }
+
+main .zone {
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    padding: var(--zone-padding);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(72, 53, 138, 0.1);
+}
+
+h1 {
+    font-size: 2rem;
+    color: var(--color-darker);
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--color-darker);
+}
+
+h3 {
+    font-size: 1.25rem;
+    color: var(--color-darker);
+}
+
+p, li {
+    font-size: 1rem;
+}
+
+a {
+    color: var(--color-primary);
+}
+
+a:hover {
+    color: var(--color-dark);
+}
+
+details {
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-alt);
+}
+
+details summary {
+    color: var(--color-highlight);
+}
+
+blockquote {
+    border-left: 4px solid var(--color-primary);
+    background-color: var(--color-highlight-bg);
+}
+
+/* Stiluri tabel generice (pentru alte tabele) */
+table {
+    border-collapse: collapse;
+}
+
+th {
+    background-color: var(--color-mid);
+    color: var(--color-bg);
+}
+
+td {
+    border: 1px solid var(--color-border);
+}
+
+tfoot td {
+    background-color: var(--color-bg-alt);
+}
+
+footer {
+    background-color: var(--color-darker);
+    color: var(--color-bg);
+    border-top: 3px solid var(--color-primary);
+    padding: var(--zone-padding) var(--spacing-page);
+    border-radius: 0.5rem 0.5rem 0 0;
+    box-shadow: 0 -2px 8px rgba(72, 53, 138, 0.2);
+}
+
+footer a {
+    color: var(--color-primary-light);
+}
+
+.formula {
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-alt);
+}
+
+.map-container {
+    border: 1px solid var(--color-border);
+}
+
+meter {
+    accent-color: var(--color-primary);
+}
+
+/* Design rudimentar: elemente media - latime %, min/max responsive */
+.zone img {
+    width: 100%;
+    max-width: 100%;
+    min-width: 8rem;
+    height: auto;
+}
+
+.zone object {
+    width: 100%;
+    max-width: 100%;
+    min-width: 12rem;
+}
+
+.zone iframe,
+.map-container iframe {
+    width: 100%;
+    max-width: 100%;
+    min-width: 16rem;
+}
+
+@media (min-width: 768px) {
+    .zone img {
+        max-width: 90%;
+        min-width: 12rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .zone img {
+        max-width: 85%;
+        min-width: 16rem;
+    }
+}
+
+/* Preview catalog PDF - fortat 9:16 portret, centrat */
+.catalog-preview-9-16 {
+    position: relative;
+    width: 100%;
+    max-width: 18rem;
+    aspect-ratio: 9 / 16;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.catalog-preview-9-16 object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ETAPA 2: stilizare-taburi - flexbox, taburi verticale, iframe cu border */
+.video-tabs-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .video-tabs-container {
+        flex-direction: column;
+    }
+
+    .video-tabs {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .video-tabs a {
+        transition: none;
+    }
+
+    .iframe-tab-content {
+        border-radius: 0.5rem;
+    }
+}
+
+.video-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.video-tabs a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.25rem;
+    min-width: 10rem;
+    background-color: var(--color-bg-alt);
+    color: var(--color-darker);
+    border: 2px solid var(--color-mid);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(72, 53, 138, 0.15);
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.video-tabs a:hover,
+.video-tabs a:focus,
+.video-tabs a.tab-active {
+    background-color: var(--color-mid);
+    color: var(--color-bg);
+    box-shadow: 0 3px 6px rgba(72, 53, 138, 0.25);
+}
+
+.iframe-tab-content {
+    flex: 1;
+    min-width: 0;
+    background-color: var(--color-bg);
+    border: 6px solid var(--color-mid);
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iframe-tab-content .iframe-16-9 {
+    max-width: none;
+}
+
+/* Iframe YouTube - fortat 16:9 landscape */
+.iframe-16-9 {
+    position: relative;
+    width: 100%;
+    min-width: 18rem;
+    max-width: 40rem;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.iframe-16-9 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ETAPA 2: stilizare-tabel */
+.table-scroll-container {
+    overflow-x: auto;
+    margin-bottom: 0.5rem;
+}
+
+/* Caption sub tabel */
+.styled-table {
+    border-collapse: collapse;
+    min-width: 20rem;
+}
+
+.styled-table caption {
+    caption-side: bottom;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+/* Borduri coloane alternate: par-impar -> c1, impar-par -> c2 */
+.styled-table th,
+.styled-table td {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid transparent;
+}
+
+.styled-table th:nth-child(1),
+.styled-table td:nth-child(1) {
+    border-right: 1px solid var(--color-mid);
+}
+
+.styled-table th:nth-child(2),
+.styled-table td:nth-child(2) {
+    border-right: 1px solid var(--color-dark);
+}
+
+.styled-table th:nth-child(3),
+.styled-table td:nth-child(3) {
+    border-right: 1px solid var(--color-mid);
+}
+
+.styled-table th:nth-child(4),
+.styled-table td:nth-child(4) {
+    border-right: 1px solid var(--color-border);
+}
+
+.styled-table th {
+    background-color: var(--color-mid);
+    color: var(--color-bg);
+}
+
+.styled-table tbody tr {
+    transition: box-shadow 0.5s ease;
+}
+
+.styled-table tbody tr:hover {
+    box-shadow: inset 0 0 0 3px var(--color-primary);
+}
+
+.styled-table tfoot td {
+    background-color: var(--color-bg-alt);
+}
+
+/* Borduri groase thead/tbody si tbody/tfoot (2-3x fata de 1px) */
+.styled-table thead {
+    border-bottom: 3px solid var(--color-darker);
+}
+
+.styled-table tfoot {
+    border-top: 3px solid var(--color-darker);
+}
+
+.styled-table td {
+    border-top: 1px solid var(--color-border);
+}
+
+.styled-table td:first-child,
+.styled-table th:first-child {
+    border-left: 1px solid var(--color-border);
+}
+
+@media (max-width: 767px) {
+    .styled-table tbody tr {
+        transition: none;
+    }
+}
+
+/* ETAPA 2: link-top - buton inapoi sus, fix dreapta jos */
+.link-top {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    opacity: 0.5;
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 1000;
+    transition: opacity 0.4s ease;
+}
+
+.link-top:hover {
+    opacity: 1;
+}
+
+.link-top-brackets {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-left: 4px solid var(--color-mid);
+    border-right: 4px solid var(--color-mid);
+    border-top: none;
+    border-bottom: none;
+    border-radius: 50%;
+    transition: border-color 0.4s ease;
+}
+
+.link-top:hover .link-top-brackets {
+    border-color: var(--color-darker);
+}
+
+.link-top-triangle {
+    width: 0;
+    height: 0;
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-top: none;
+    border-bottom: 0.7rem solid var(--color-primary);
+    margin-bottom: -0.3rem;
+    transition: margin-bottom 0.5s ease, border-bottom-color 0.4s ease;
+}
+
+.link-top:hover .link-top-triangle {
+    margin-bottom: 0;
+    border-bottom-color: var(--color-darker);
+}
+
+.link-top-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-0.5rem);
+    padding: 0.5rem 0.75rem;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-darker);
+    border-radius: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--color-text);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.link-top:hover .link-top-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-0.75rem);
+}
+
+@media (max-width: 767px) {
+    .link-top,
+    .link-top-brackets,
+    .link-top-triangle,
+    .link-top-tooltip {
+        transition: none;
+    }
+}
