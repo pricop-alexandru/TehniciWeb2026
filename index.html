@@ -31,6 +31,7 @@
                     <ul>
                         <li><a href="#banner">Banner</a></li>
                         <li><a href="#collections">Collections</a></li>
+                        <li><a href="#evenimente">Evenimente</a></li>
                     </ul>
                 </li>
                 <li><a href="shop.html">Shop</a></li>
@@ -44,13 +45,17 @@
     <main>
         <!-- CERINTA 5: Nested sections -->
         <section id="banner">
-            <h2>New Collections</h2>
-            <!-- CERINTA 8: Responsive image -->
+            <!-- CERINTA: hgroup - heading cu subtitlu -->
+            <hgroup>
+                <h2>New Collections</h2>
+                <h3>Discover our latest meme apparel and pop culture hoodies</h3>
+            </hgroup>
+            <!-- CERINTA 8: Responsive image (title = descriere scurta la hover) -->
             <figure>
                 <picture>
                     <source media="(max-width: 600px)" srcset="resources/img/banner-small.png">
                     <source media="(max-width: 1200px)" srcset="resources/img/banner-medium.png">
-                    <img src="/resources/img/banner-big.png" alt="Featured collections banner">
+                    <img src="/resources/img/banner-big.png" alt="Featured collections banner" title="Autumn Collection - Funny t-shirts and hoodies">
                 </picture>
                 <figcaption>Our Autumn Collection</figcaption>
             </figure>
@@ -91,13 +96,23 @@
                 <p>Where H = Humor Factor, L = Laughs, D = Design Quality, T = Time</p>
             </div>
             <!-- BONUS 3: PDF Embed -->
-        <section id="catalog">
-            <h2>Product Catalog</h2>
+        <section id="collections">
+            <h3>Product Catalog</h3>
             <object data="resources/catalog.pdf" type="application/pdf" width="300" height="500">
                 <p>Unable to display PDF. <a href="resources/catalog.pdf">Download instead</a></p>
             </object>
         </section>
 
+        </section>
+
+        <!-- CERINTA: Sectiune evenimente cu time, datetime, lista ol, nume in b -->
+        <section id="evenimente">
+            <h2>Upcoming Events</h2>
+            <ol>
+                <li><time datetime="2025-03-20T12:00">20 martie, ora 12:00</time> - <b>Launch Pop Culture Hoodies</b> - Lansam colectia noua de hoodies inspirata din filme si seriale. Reducere 15% in prima zi.</li>
+                <li><time datetime="2025-03-25T14:00">25 martie, ora 14:00</time> - <b>Meme T-Shirts Flash Sale</b> - Doar 3 ore de reduceri pana la 30% pe toate tricourile cu meme-uri.</li>
+                <li><time datetime="2025-04-01T10:00">1 aprilie, ora 10:00</time> - <b>April Fools Collection</b> - Designuri speciale limitate. Oferim cadou un poster la comenzi peste 50 RON.</li>
+            </ol>
         </section>
 
         <!-- CERINTA 10: Special elements -->
@@ -106,28 +121,95 @@
                 <summary>Deal of the Day</summary>
                 <p><strong>WARNING:</strong> Offer valid today only! <s>$24.99</s> <ins>$19.99</ins></p>
             </details>
+            <details>
+                <summary>Free Shipping</summary>
+                <p>Comanda gratuita la achizitii peste 150 RON pentru funny t-shirts si hoodies.</p>
+            </details>
             
             <blockquote>
                 <p><q>The best store for funny t-shirts!</q> - <cite>Satisfied Customer</cite></p>
             </blockquote>
             
             <p><abbr title="Search Engine Optimization">SEO</abbr> optimized for relevant keywords</p>
+            
+            <!-- CERINTA: meter x2 - unul sub low, unul peste high -->
+            <p>Stoc hoodies (limita joasa): <meter value="2" min="0" max="100" low="10" high="80" optimum="50">2/100</meter></p>
+            <p>Rating clienti (peste limita): <meter value="92" min="0" max="100" low="30" high="70" optimum="90">92/100</meter></p>
         </div>
 
         <!-- CERINTA 11: Special links -->
         <div>
-            <a href="https://www.google.com" target="_blank" rel="noopener">Design Inspiration </a>
-            <a href="resurse/catalog.pdf" download>Download Catalog </a>
+            <a href="https://www.google.com" target="_blank" rel="noopener">Design Inspiration</a>
+            <!-- Link extern cu #fragment, text=URL, wbr pentru taiere rand -->
+            <a href="https://www.w3.org/TR/html52/document-metadata#the-link-element">https://www.w3.org/TR/html52/document<wbr>-metadata#the-link-element</a>
+            <!-- Link cu imagine: click deschide imaginea mare in tab -->
+            <a href="resources/img/banner-big.png"><img src="resources/img/banner-small.png" alt="Vezi banner mare" width="120" height="80" title="Click pentru imagine marita"></a>
+            <!-- Download cu atribut download=nume_nou (alt decat original) -->
+            <a href="resources/catalog.pdf" download="catalog_onlymerch.pdf">Download Catalog</a>
             
+            <div>
+                <!-- Linkuri deasupra iframe: 2 alte video + 1 acelasi cu iframe -->
+                <a href="https://www.youtube.com/embed/B-ytMSuwbf8?si=vSPWOQPdV0OP1C7G" target="videoFrame">Video (in iframe)</a>
+                <a href="https://www.youtube.com/embed/qyomWr_C_jA?si=S9hqlJ4GBaOIP60W" target="videoFrame">Video 2</a>
+                <a href="https://www.youtube.com/embed/dQw4w9WgXcQ" target="videoFrame">Video 3</a>
+            </div>
             <iframe name="videoFrame" src="https://www.youtube.com/embed/B-ytMSuwbf8?si=vSPWOQPdV0OP1C7G"></iframe>
-            <a href="https://www.youtube.com/embed/B-ytMSuwbf8?si=vSPWOQPdV0OP1C7G" target="videoFrame">Video 1</a>
-            <a href="https://www.youtube.com/embed/qyomWr_C_jA?si=S9hqlJ4GBaOIP60W" target="videoFrame">Video 2</a>
         </div>
+        
+        <!-- CERINTA: Tabel thead/tbody/tfoot, 5+ randuri, 4 coloane, rowspan/colspan, caption -->
+        <table>
+            <caption>Top vandute produse - funny t-shirts si hoodies</caption>
+            <thead>
+                <tr>
+                    <th>Produs</th>
+                    <th>Categorie</th>
+                    <th>Vandute</th>
+                    <th>Pret (RON)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Meme Classic</td>
+                    <td>Meme apparel</td>
+                    <td>156</td>
+                    <td>79</td>
+                </tr>
+                <tr>
+                    <td>Pop Culture Hero</td>
+                    <td rowspan="2">Pop culture clothing</td>
+                    <td>134</td>
+                    <td>89</td>
+                </tr>
+                <tr>
+                    <td>TV Show Quote</td>
+                    <td>98</td>
+                    <td>79</td>
+                </tr>
+                <tr>
+                    <td>Hoodie Premium</td>
+                    <td>Hoodies</td>
+                    <td>87</td>
+                    <td>129</td>
+                </tr>
+                <tr>
+                    <td>Funny Cats</td>
+                    <td>Meme apparel</td>
+                    <td>76</td>
+                    <td>69</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total unitati</td>
+                    <td>551</td>
+                </tr>
+            </tfoot>
+        </table>
     </main>
 
     <!-- CERINTA 4: Footer -->
     <footer>
-        <!-- CERINTA 13: Contact info -->
+        <!-- CERINTA 18: Contact info -->
         <address>
             <a href="tel:+40737405577">+40737 40 55 77</a><br>
             <a href="https://maps.app.goo.gl/PdiJG1KeRmcSJbsT9" target="_blank">University Street 1</a><br>
@@ -149,7 +231,7 @@
 
         <!-- CERINTA 14: Copyright -->
         <small>
-            &copy; <time datetime="2025-03-05">Mar 05, 2025</time> OnlyMerch
+            &copy; <time datetime="2025-03-05">5 martie 2025</time> OnlyMerch
         </small>
         
         <!-- CERINTA 11: Back to top -->
