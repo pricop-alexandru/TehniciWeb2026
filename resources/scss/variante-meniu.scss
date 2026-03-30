@@ -1,0 +1,247 @@
+/* variante-meniu (SCSS) - compilat manual in resources/css/style.css */
+
+/* Notatie: folosim variabile CSS din body (paleta cromatica) */
+
+/* Container meniu */
+.site-nav {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-toggle {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+}
+
+/* Burger (afisat doar pe mic) */
+.nav-burger {
+  display: none;
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  background: var(--color-bg);
+  border: 2px solid var(--color-primary);
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-burger-lines {
+  width: 1.25rem;
+  height: 0.9rem;
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    var(--color-darker) 0,
+    var(--color-darker) 0.12rem,
+    transparent 0.12rem,
+    transparent 0.42rem,
+    var(--color-darker) 0.42rem,
+    var(--color-darker) 0.54rem,
+    transparent 0.54rem,
+    transparent 1rem,
+    var(--color-darker) 1rem,
+    var(--color-darker) 1.12rem
+  );
+  border-radius: 999px;
+}
+
+/* Meniu desktop */
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-link {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  border-radius: 0.75rem;
+  background: transparent;
+  color: var(--color-bg);
+}
+
+.nav-link:hover {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+/* Umbra textului aluneca de sus */
+.nav-link .nav-text {
+  position: relative;
+  text-shadow: 0 -0.75rem 0 rgba(255, 255, 255, 0.65);
+  transition: text-shadow 300ms ease, color 300ms ease;
+}
+
+.nav-item:hover > .nav-link .nav-text {
+  text-shadow: 0 0 0 rgba(255, 255, 255, 0.65);
+}
+
+.nav-link i {
+  font-size: 1.05rem;
+}
+
+/* Submeniu (desktop): scaleY 0 -> 1 */
+.nav-submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 14rem;
+  border-radius: 0.75rem;
+  background: var(--color-primary);
+  border: 2px solid var(--color-darker);
+  transform-origin: top;
+  transform: scaleY(0);
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+  transition: transform 300ms ease, opacity 150ms ease;
+  z-index: 50;
+}
+
+.nav-submenu a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1rem;
+  color: var(--color-bg);
+  text-decoration: none;
+  background: transparent;
+  position: relative;
+}
+
+.nav-submenu a::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.35rem;
+  height: 0.18rem;
+  background: var(--color-bg);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease;
+  border-radius: 999px;
+}
+
+.nav-submenu a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-bg);
+}
+
+.nav-submenu a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-item:hover > .nav-submenu {
+  transform: scaleY(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Medium: doar iconuri */
+@media (max-width: 1199px) {
+  .nav-text {
+    display: none;
+  }
+}
+
+/* Mobile: burger + animatie aparitie text */
+@media (max-width: 767px) {
+  .nav-burger {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    padding: 0.5rem;
+    background: var(--color-bg);
+    border: 2px solid var(--color-primary);
+    border-radius: 1rem;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    left: 0;
+    transform: translateY(-0.5rem);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease, transform 250ms ease;
+  }
+
+  .nav-menu .nav-link {
+    border-radius: 0.75rem;
+    background: var(--color-bg-alt);
+    color: var(--color-darker);
+    box-shadow: none;
+  }
+
+  .nav-menu .nav-link .nav-text {
+    display: inline;
+    text-shadow: none;
+    letter-spacing: -0.3em;
+    transform: scaleX(0.7);
+    opacity: 0.9;
+    transition: letter-spacing 350ms ease, transform 350ms ease, opacity 350ms ease;
+  }
+
+  .nav-toggle:checked ~ .nav-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-toggle:checked ~ .nav-menu .nav-link .nav-text {
+    letter-spacing: 0.05em;
+    transform: scaleX(1);
+  }
+
+  /* Submeniu in burger: nu absolut, expand cu scaleY */
+  .nav-submenu {
+    position: relative;
+    left: 0;
+    top: auto;
+    min-width: auto;
+    background: var(--color-bg-alt);
+    border: 2px solid var(--color-primary);
+    border-radius: 0.75rem;
+    padding: 0.25rem 0;
+    transform: scaleY(0);
+    opacity: 0;
+    pointer-events: none;
+    margin: 0.5rem 0;
+  }
+
+  .nav-item:hover > .nav-submenu {
+    transform: scaleY(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* pe mobil: la hover nu facem umbre/transition initiala */
+  .nav-menu .nav-item:hover > .nav-link .nav-text {
+    transition: none;
+    text-shadow: none;
+  }
+}
+

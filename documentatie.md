@@ -78,3 +78,49 @@ Buton fix dreapta jos, fara imagini. Paranteze: block cu border-left/right rotun
 - **Media:** img, iframe, object cu width %, min-width, max-width responsive
 - **Font extern:** Nunito (Google Fonts)
 - **Iconuri Font Awesome:** fa-shirt static in header, fa-truck animate (fa-bounce) la Free Shipping
+
+---
+
+## Etapa 3: Variante Meniu (identificator: variante-meniu)
+
+### Implementare HTML
+
+- Meniul a fost inlocuit in `index.html` (in interiorul `header`) cu un meniu derulant folosind `nav > ul > li > a` (submeniuri cu `ul` imbricat).
+- In `index.html` meniul include:
+  - Checkbox toggle pentru hamburger (`input.nav-toggle` + `label.nav-burger`).
+  - Optiuni principale cu iconuri Font Awesome si text (`.nav-text`).
+  - Submeniu 1 pentru pagina principala/sectiuni din prima pagina (ex: `#zone1`, `#zone2`, `#zone3`, etc.).
+  - Submeniu 2 pentru linkuri catre pagini din site (ex: `shop.html`, `newsletter.html`, `contact.html`).
+
+### Implementare SASS/CSS
+
+- Stile pentru meniu sunt in `resources/css/style.css` (compilate manual).
+- Sursa SCSS este in `resources/scss/variante-meniu.scss`.
+- Comportamente (desktop):
+  - Hover pe optiune: umbre/text-shadow care "aluneca" in sus pana se aliniaza, plus schimbare culoare a "butonului"-link.
+  - Deschidere submeniu: animatie cu `transform: scaleY(0) -> scaleY(1)`.
+  - Hover pe suboptiune: underline progresiv (pseudo-element `::after` cu `transform: scaleX`).
+
+### Responsive
+
+- Pe ecran mediu (<1200px): textul se ascunde (`.nav-text`), raman iconurile.
+- Pe ecran mic (<768px):
+  - Se afiseaza hamburger-ul.
+  - Submeniul se deschide prin checkbox (`.nav-toggle:checked ~ .nav-menu`).
+  - Textul este comprimat/anima in aparitie (letter spacing + scaleX), iar umbrele initiale sunt dezactivate pe hover pentru acest breakpoint.
+
+---
+
+## Etapa 3: CSS Printare (identificator: css-printare)
+
+### Ce face la print (`@media print`)
+
+- Bannerul „Acesta este un proiect școlar!” este afisat sus in prima pagina (80% latime, border negru punctat).
+- Meniul si butonul „Back to Top” sunt ascunse la print.
+- Imaginile, video/iframe/object si elementele dependente (ex: `figure`, `figcaption`) sunt ascunse.
+- Gridul din `main.layout-grid` este fortat sa fie `display: block` ca sa nu se taie celulele.
+- Toate linkurile apar ca text normal (fara colorare/subline).
+- `h1` (titlul site-ului) este centrat vertical si orizontal pe prima pagina, este subliniat si are font-size de ~2.5 ori fata de font-size-ul html-ului.
+- Se face `page-break` dupa heading (header) si inainte de footer.
+- Se afiseaza un watermark pe fiecare pagina: dimensiune 100px x 2cm, border dublu, opacity 0.65.
+- Se seteaza margini diferite in functie de pagina stanga/dreapta prin `@page :left` / `@page :right` (stanga: 2.5cm/0.5cm, dreapta: invers).

@@ -585,3 +585,384 @@ meter {
         transition: none;
     }
 }
+
+/* ETAPA 3: variante-meniu (dropdown + hamburger) */
+.site-nav {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-toggle {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+}
+
+.nav-burger {
+    display: none;
+    cursor: pointer;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    background: var(--color-bg);
+    border: 2px solid var(--color-primary);
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-burger-lines {
+    width: 1.25rem;
+    height: 0.9rem;
+    position: relative;
+    background: linear-gradient(to bottom, var(--color-darker) 0, var(--color-darker) 0.12rem, transparent 0.12rem, transparent 0.42rem, var(--color-darker) 0.42rem, var(--color-darker) 0.54rem, transparent 0.54rem, transparent 1rem, var(--color-darker) 1rem, var(--color-darker) 1.12rem);
+    border-radius: 999px;
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-link {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    border-radius: 0.75rem;
+    background: transparent;
+    color: var(--color-bg);
+}
+
+.nav-link:hover {
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+}
+
+.nav-link .nav-text {
+    position: relative;
+    text-shadow: 0 -0.75rem 0 rgba(255, 255, 255, 0.65);
+    transition: text-shadow 300ms ease, color 300ms ease;
+}
+
+.nav-item:hover>.nav-link .nav-text {
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.65);
+}
+
+.nav-link i {
+    font-size: 1.05rem;
+}
+
+.nav-submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0.25rem 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 14rem;
+    border-radius: 0.75rem;
+    background: var(--color-primary);
+    border: 2px solid var(--color-darker);
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    transition: transform 300ms ease, opacity 150ms ease;
+    z-index: 50;
+}
+
+.nav-submenu li {
+    display: block;
+}
+
+.nav-submenu a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 1rem;
+    color: var(--color-bg);
+    text-decoration: none;
+    background: transparent;
+    position: relative;
+}
+
+.nav-submenu a::after {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.35rem;
+    height: 0.18rem;
+    background: var(--color-bg);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms ease;
+    border-radius: 999px;
+}
+
+.nav-submenu a:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--color-bg);
+}
+
+.nav-submenu a:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-item:hover>.nav-submenu {
+    transform: scaleY(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Medium: text hidden, only icons */
+@media (max-width: 1199px) {
+    .nav-text {
+        display: none;
+    }
+}
+
+/* Mobile: hamburger mode */
+@media (max-width: 767px) {
+    .nav-burger {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+        padding: 0.5rem;
+        background: var(--color-bg);
+        border: 2px solid var(--color-primary);
+        border-radius: 1rem;
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        left: 0;
+        transform: translateY(-0.5rem);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 200ms ease, transform 250ms ease;
+    }
+
+    .nav-menu .nav-link {
+        border-radius: 0.75rem;
+        background: var(--color-bg-alt);
+        color: var(--color-darker);
+        box-shadow: none;
+    }
+
+    .nav-menu .nav-link .nav-text {
+        display: inline;
+        text-shadow: none;
+        letter-spacing: -0.3em;
+        transform: scaleX(0.7);
+        opacity: 0.9;
+        transition: letter-spacing 350ms ease, transform 350ms ease, opacity 350ms ease;
+    }
+
+    /* Aparitie meniu burger */
+    .nav-toggle:checked~.nav-menu {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .nav-toggle:checked~.nav-menu .nav-link .nav-text {
+        letter-spacing: 0.05em;
+        transform: scaleX(1);
+    }
+
+    /* Submeniu in burger: collapse scaleY */
+    .nav-submenu {
+        position: relative;
+        left: 0;
+        top: auto;
+        min-width: auto;
+        background: var(--color-bg-alt);
+        border: 2px solid var(--color-primary);
+        border-radius: 0.75rem;
+        padding: 0.25rem 0;
+        transform: scaleY(0);
+        opacity: 0;
+        pointer-events: none;
+        margin: 0.5rem 0;
+    }
+
+    .nav-item:hover>.nav-submenu {
+        transform: scaleY(1);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* pe mobil: la hover doar background, fara umbra-alunecare */
+    .nav-menu .nav-item:hover>.nav-link .nav-text {
+        transition: none;
+        text-shadow: none;
+    }
+
+    /* Inlocuim prima optiune cu icon-casuta */
+    .nav-item.home .nav-link .nav-text {
+        display: none;
+    }
+}
+
+/* ETAPA 3: css-printare */
+.print-school-banner {
+    display: none; /* afisat doar la print */
+}
+
+.print-watermark {
+    display: none; /* afisat doar la print */
+}
+
+@media print {
+    @page {
+        margin-top: 1cm;
+        margin-bottom: 1cm;
+        margin-left: 2.5cm;
+        margin-right: 0.5cm;
+    }
+
+    @page :right {
+        margin-left: 0.5cm;
+        margin-right: 2.5cm;
+    }
+
+    @page :left {
+        margin-left: 2.5cm;
+        margin-right: 0.5cm;
+    }
+
+    /* Watermark pe fiecare pagina */
+    .print-watermark {
+        display: flex;
+        position: fixed;
+        top: 1cm;
+        right: 0.5cm;
+        width: 100px;
+        height: 2cm;
+        border: 4px double #000;
+        opacity: 0.65;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        z-index: 9999;
+    }
+
+    /* Banner sus prima pagina (element dedicat) */
+    .print-school-banner {
+        display: block;
+        position: absolute;
+        top: 0.3cm;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        border: 2px dotted #000;
+        text-align: center;
+        padding: 0.25rem 0.5rem;
+        background: transparent;
+        color: #000;
+        z-index: 9998;
+        font-size: 0.95rem;
+    }
+
+    /* Hide meniu + link-top */
+    nav,
+    .site-nav,
+    header nav,
+    .link-top,
+    .footer-school-banner {
+        display: none !important;
+    }
+
+    /* Hide media (inclusiv descrieri dependente) */
+    img,
+    video,
+    iframe,
+    object,
+    picture,
+    source,
+    figure,
+    figcaption {
+        display: none !important;
+    }
+
+    /* Hide alte elemente care pot afecta printul (ex: harta) */
+    .map-container {
+        display: none !important;
+    }
+
+    /* Grid ca block */
+    main.layout-grid {
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        gap: 0 !important;
+    }
+
+    .zone {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin: 0 0 0.75rem 0;
+        padding: 0 !important;
+    }
+
+    /* Linkuri ca text normal */
+    a,
+    a:visited,
+    a:hover {
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+
+    /* Titlul site-ului pe prima pagina */
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        position: relative;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        page-break-after: always;
+        break-after: page;
+    }
+
+    header h1 {
+        font-size: 2.5em; /* fata de font-size-ul html */
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        color: #000;
+        margin: 0;
+    }
+
+    header h1 i {
+        display: none;
+    }
+
+    /* Footer pe pagina noua */
+    footer {
+        page-break-before: always;
+        break-before: page;
+    }
+}

@@ -30,23 +30,50 @@
 </head>
 
 <body>
+    <!-- ETAPA 3: css-printare -->
+    <div class="print-watermark">Pricop Alexandru</div>
+
     <!-- CERINTA 4: Header -->
     <header>
+        <p class="print-school-banner">Acesta este un proiect școlar!</p>
         <h1><i class="fa-solid fa-shirt fa-fw"></i> OnlyMerch</h1>
         
-        <!-- CERINTA 6: Navigation -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a>
-                    <ul>
-                        <li><a href="#zone1">Banner</a></li>
-                        <li><a href="#zone2">Tabel</a></li>
-                        <li><a href="#zone8">Evenimente</a></li>
+        <!-- ETAPA 2: variante-meniu -->
+        <nav class="site-nav" aria-label="Meniu principal">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+            <label for="nav-toggle" class="nav-burger" aria-label="Deschide meniu">
+                <span class="nav-burger-lines" aria-hidden="true"></span>
+            </label>
+
+            <ul class="nav-menu">
+                <li class="nav-item has-submenu home">
+                    <a class="nav-link" href="index.html">
+                        <i class="fa-solid fa-house" aria-hidden="true"></i>
+                        <span class="nav-text">Acasa</span>
+                    </a>
+                    <ul class="nav-submenu">
+                        <li><a href="#zone1"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Banner</span></a></li>
+                        <li><a href="#zone2"><i class="fa-solid fa-table" aria-hidden="true"></i><span>Tabel</span></a></li>
+                        <li><a href="#zone3"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i><span>Calendar</span></a></li>
+                        <li><a href="#zone4"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i><span>Anunturi</span></a></li>
+                        <li><a href="#zone5"><i class="fa-solid fa-users" aria-hidden="true"></i><span>Online</span></a></li>
+                        <li><a href="#zone6"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i><span>Statistici</span></a></li>
+                        <li><a href="#zone7"><i class="fa-solid fa-server" aria-hidden="true"></i><span>Date site</span></a></li>
+                        <li><a href="#zone8"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span>Diverse</span></a></li>
                     </ul>
                 </li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="newsletter.html">Newsletter</a></li>
-                <li><a href="contact.html">Contact & FAQ</a></li>
+
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#">
+                        <i class="fa-solid fa-grip" aria-hidden="true"></i>
+                        <span class="nav-text">Pagini</span>
+                    </a>
+                    <ul class="nav-submenu">
+                        <li><a href="shop.html"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><span>Shop</span></a></li>
+                        <li><a href="newsletter.html"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Newsletter</span></a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>Contact & FAQ</span></a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -249,6 +276,9 @@
             <a href="mailto:alex.pricop203@gmail.com">contact@onlymerch.ro</a><br>
             <a href="whatsapp://send?phone=+40737405577">Chat on WhatsApp</a>
         </address>
+
+        <p class="footer-school-banner">Acesta este un proiect școlar!</p>
+
         <!-- BONUS 4: Google Maps Iframe -->
         <div class="map-container">
             <iframe 
