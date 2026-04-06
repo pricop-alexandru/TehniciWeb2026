@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="120" viewBox="0 0 200 120">
+  <rect width="200" height="120" fill="#f0ecfc" stroke="#6040CD" stroke-width="3"/>
+  <text x="100" y="55" text-anchor="middle" font-family="sans-serif" font-size="28" fill="#48348A">404</text>
+  <text x="100" y="85" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#5035AB">Pagina lipseste</text>
+</svg>

@@ -1,0 +1,23 @@
+{
+  "name": "onlymerch",
+  "version": "1.0.0",
+  "description": "OnlyMerch - magazin online funny t-shirts, hoodies, meme apparel (proiect Tehnici Web)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "onlymerch",
+    "t-shirts",
+    "hoodies",
+    "meme",
+    "express",
+    "ejs"
+  ],
+  "author": "Pricop Alexandru / OnlyMerch Team",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^5.2.1"
+  }
+}

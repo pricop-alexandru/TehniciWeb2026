@@ -1,0 +1,13 @@
+<%# etapa 4 cerinta 12 - template erori %>
+<%- include('../fragmente/head', { titluPagina: titlu }) %>
+<body class="pagina-eroare">
+    <main style="max-width: 40rem; margin: 2rem auto; padding: 1rem; text-align: center;">
+        <h1><%= titlu %></h1>
+        <p><%= text %></p>
+        <% if (imagine) { %>
+        <p><img src="<%= imagine %>" alt="" style="max-width: 100%; height: auto;"></p>
+        <% } %>
+        <p><a href="/">Inapoi la pagina principala</a></p>
+    </main>
+</body>
+</html>

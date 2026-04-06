@@ -124,3 +124,12 @@ Buton fix dreapta jos, fara imagini. Paranteze: block cu border-left/right rotun
 - Se face `page-break` dupa heading (header) si inainte de footer.
 - Se afiseaza un watermark pe fiecare pagina: dimensiune 100px x 2cm, border dublu, opacity 0.65.
 - Se seteaza margini diferite in functie de pagina stanga/dreapta prin `@page :left` / `@page :right` (stanga: 2.5cm/0.5cm, dreapta: invers).
+
+---
+
+## Etapa 4 (partea 1) - Server Express + EJS
+
+- **Pornire:** din folderul proiectului rulezi `npm start` sau `node index.js`. Serverul asculta pe **http://localhost:8080**.
+- **Fisiere principale:** `index.js`, `package.json`, `erori.json`, `views/fragmente/`, `views/pagini/`, resurse statice in `resources/` expuse la `/resources/...`.
+- **Rute:** `GET /`, `/index`, `/home` randeaza `pagini/index.ejs`. Ultimul `GET /:pagina` randeaza `pagini/<pagina>.ejs` sau 404 (prin callback la `render`).
+- **Erori:** `erori.json` + imagini in `resources/img/erori/`.

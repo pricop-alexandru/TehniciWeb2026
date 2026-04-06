@@ -1,86 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- CERINTA 1: Doctype & lang -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CERINTA 2: Meta tags -->
-    <meta name="author" content="OnlyMerch Team">
-    <meta name="keywords" content="funny t-shirts, hoodies, meme apparel, pop culture clothing">
-    <meta name="description" content="Online store for funny t-shirts and hoodies with unique designs">
-    <meta name="msapplication-TileColor" content="#ff00ff">
-    <title>OnlyMerch - Funny T-Shirts & Hoodies</title>
-    
-    <!-- CERINTA 3: Favicon -->
-    <link rel="icon" type="image/png" href="/resources/ico/favicon-96x96.png" sizes="96x96" >
-    <link rel="icon" type="image/svg+xml" href="/resources/ico/favicon.svg" >
-    <link rel="shortcut icon" href="/resources/ico/favicon.ico" >
-    <link rel="apple-touch-icon" sizes="180x180" href="/resources/ico/apple-touch-icon.png" >
-    <meta name="apple-mobile-web-app-title" content="OnlyMerch" >
-    <link rel="manifest" href="/resources/ico/site.webmanifest" >
-    
-    <!-- ETAPA 2: schema-cromatica - CSS cu variabile culori -->
-    <link rel="stylesheet" href="resources/css/style.css">
-    <!-- Design rudimentar: Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome icons (CDN) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
+<%# etapa 4 cerinta 5 - pagina principala %>
+<%- include('../fragmente/head') %>
+<%- include('../fragmente/header') %>
 
-<body>
-    <!-- ETAPA 3: css-printare -->
-    <div class="print-watermark">Pricop Alexandru</div>
-
-    <!-- CERINTA 4: Header -->
-    <header>
-        <p class="print-school-banner">Acesta este un proiect școlar!</p>
-        <h1><i class="fa-solid fa-shirt fa-fw"></i> OnlyMerch</h1>
-        
-        <!-- ETAPA 2: variante-meniu -->
-        <nav class="site-nav" aria-label="Meniu principal">
-            <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-            <label for="nav-toggle" class="nav-burger" aria-label="Deschide meniu">
-                <span class="nav-burger-lines" aria-hidden="true"></span>
-            </label>
-
-            <ul class="nav-menu">
-                <li class="nav-item has-submenu home">
-                    <a class="nav-link" href="index.html">
-                        <i class="fa-solid fa-house" aria-hidden="true"></i>
-                        <span class="nav-text">Acasa</span>
-                    </a>
-                    <ul class="nav-submenu">
-                        <li><a href="#zone1"><i class="fa-solid fa-image" aria-hidden="true"></i><span>Banner</span></a></li>
-                        <li><a href="#zone2"><i class="fa-solid fa-table" aria-hidden="true"></i><span>Tabel</span></a></li>
-                        <li><a href="#zone3"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i><span>Calendar</span></a></li>
-                        <li><a href="#zone4"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i><span>Anunturi</span></a></li>
-                        <li><a href="#zone5"><i class="fa-solid fa-users" aria-hidden="true"></i><span>Online</span></a></li>
-                        <li><a href="#zone6"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i><span>Statistici</span></a></li>
-                        <li><a href="#zone7"><i class="fa-solid fa-server" aria-hidden="true"></i><span>Date site</span></a></li>
-                        <li><a href="#zone8"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span>Diverse</span></a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item has-submenu">
-                    <a class="nav-link" href="#">
-                        <i class="fa-solid fa-grip" aria-hidden="true"></i>
-                        <span class="nav-text">Pagini</span>
-                    </a>
-                    <ul class="nav-submenu">
-                        <li><a href="shop.html"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><span>Shop</span></a></li>
-                        <li><a href="newsletter.html"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Newsletter</span></a></li>
-                        <li><a href="contact.html"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>Contact & FAQ</span></a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- CERINTA 4: Main - ETAPA 2: layout-responsive grid -->
     <main class="layout-grid">
-        <!-- Zona 1: Prezentare / poster (Z-pattern - imagini + text) -->
         <section id="zone1" class="zone zone1">
             <hgroup>
                 <h2>New Collections</h2>
@@ -88,8 +10,8 @@
             </hgroup>
             <figure>
                 <picture>
-                    <source media="(max-width: 600px)" srcset="resources/img/banner-small.png">
-                    <source media="(max-width: 1200px)" srcset="resources/img/banner-medium.png">
+                    <source media="(max-width: 600px)" srcset="/resources/img/banner-small.png">
+                    <source media="(max-width: 1200px)" srcset="/resources/img/banner-medium.png">
                     <img src="/resources/img/banner-big.png" alt="Featured collections banner" title="Autumn Collection - Funny t-shirts and hoodies">
                 </picture>
                 <figcaption>Our Autumn Collection</figcaption>
@@ -104,7 +26,7 @@
                 </ul>
             </article>
             <figure>
-                <img src="resources/img/banner-big.png" alt="Collections" usemap="#bannerMap">
+                <img src="/resources/img/banner-big.png" alt="Collections" usemap="#bannerMap">
                 <map name="bannerMap">
                     <area shape="rect" coords="0,0,800,1000" href="#tshirts" alt="T-Shirts Section">
                     <area shape="rect" coords="801,0,1600,1000" href="#hoodies" alt="Hoodies Section">
@@ -113,13 +35,11 @@
             </figure>
         </section>
 
-        <!-- Zona 3: Calendar evenimente - placeholder -->
         <section id="zone3" class="zone zone3">
             <h2>Calendar</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </section>
 
-        <!-- Zona 2: Tabel - ETAPA 2: stilizare-tabel -->
         <section id="zone2" class="zone zone2">
             <div class="table-scroll-container">
             <table class="styled-table">
@@ -173,13 +93,11 @@
             </div>
         </section>
 
-        <!-- Zona 4: Anunturi - placeholder -->
         <section id="zone4" class="zone zone4">
             <h2>Anunturi</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam.</p>
         </section>
 
-        <!-- Zona 8: Conținut divers (evenimente, oferte, video, formula) -->
         <section id="zone8" class="zone zone8">
             <h2>Evenimente & Oferte</h2>
             <section id="evenimente">
@@ -219,10 +137,9 @@
             <div>
                 <a href="https://www.google.com" target="_blank" rel="noopener">Design Inspiration</a>
                 <a href="https://www.w3.org/TR/html52/document-metadata#the-link-element">https://www.w3.org/TR/html52/document<wbr>-metadata#the-link-element</a>
-                <a href="resources/img/banner-big.png"><img src="resources/img/banner-small.png" alt="Vezi banner mare" width="120" height="80" title="Click pentru imagine marita"></a>
-                <a href="resources/catalog.pdf" download="catalog_onlymerch.pdf">Download Catalog</a>
+                <a href="/resources/img/banner-big.png"><img src="/resources/img/banner-small.png" alt="Vezi banner mare" width="120" height="80" title="Click pentru imagine marita"></a>
+                <a href="/resources/catalog.pdf" download="catalog_onlymerch.pdf">Download Catalog</a>
             </div>
-            <!-- ETAPA 2: stilizare-taburi - linkuri catre iframe ca taburi, flexbox -->
             <div class="video-tabs-container">
                 <nav class="video-tabs">
                     <a href="https://www.youtube.com/embed/B-ytMSuwbf8?si=vSPWOQPdV0OP1C7G" target="videoFrame" class="tab-active">Video 1</a>
@@ -238,8 +155,8 @@
             <section id="collections">
                 <h3>Product Catalog</h3>
                 <div class="catalog-preview-9-16">
-                    <object data="resources/catalog.pdf" type="application/pdf">
-                        <p>Unable to display PDF. <a href="resources/catalog.pdf">Download instead</a></p>
+                    <object data="/resources/catalog.pdf" type="application/pdf">
+                        <p>Unable to display PDF. <a href="/resources/catalog.pdf">Download instead</a></p>
                     </object>
                 </div>
             </section>
@@ -248,63 +165,22 @@
             <p>Rating clienti: <meter value="92" min="0" max="100" low="30" high="70" optimum="90">92/100</meter></p>
         </section>
 
-        <!-- Zona 7: Date site/server - placeholder -->
         <section id="zone7" class="zone zone7">
             <h2>Date site</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit.</p>
         </section>
 
-        <!-- Zona 5: Utilizatori online - placeholder -->
         <section id="zone5" class="zone zone5">
             <h2>Online</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </section>
 
-        <!-- Zona 6: Date utilizator si statistici - placeholder -->
+        <%# etapa 4 cerinta 17 - IP utilizator in zona date utilizator %>
         <section id="zone6" class="zone zone6">
             <h2>Statistici</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod.</p>
+            <p><strong>Adresa ta (IP):</strong> <span class="client-ip"><%= clientIp %></span></p>
         </section>
     </main>
 
-    <!-- CERINTA 4: Footer -->
-    <footer>
-        <!-- CERINTA 18: Contact info -->
-        <address>
-            <a href="tel:+40737405577">+40737 40 55 77</a><br>
-            <a href="https://maps.app.goo.gl/PdiJG1KeRmcSJbsT9" target="_blank">University Street 1</a><br>
-            <a href="mailto:alex.pricop203@gmail.com">contact@onlymerch.ro</a><br>
-            <a href="whatsapp://send?phone=+40737405577">Chat on WhatsApp</a>
-        </address>
-
-        <p class="footer-school-banner">Acesta este un proiect școlar!</p>
-
-        <!-- BONUS 4: Google Maps Iframe -->
-        <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d712.2210749543317!2d26.09894296967583!3d44.43553549819225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFaculty%20of%20Mathematics%20and%20Computer%20Science!5e0!3m2!1sen!2sro!4v1741653141701!5m2!1sen!2sro" 
-                width="400" 
-                height="300" 
-                style="border:0;"
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
-
-        <!-- CERINTA 14: Copyright -->
-        <small>
-            &copy; <time datetime="2026-03-22">22 martie 2026</time> OnlyMerch
-        </small>
-        
-    </footer>
-    
-    <!-- ETAPA 2: link-top - buton fix dreapta jos, fara imagini -->
-    <a href="#" class="link-top" title="Du-te la inceputul paginii" aria-label="Inapoi sus">
-        <span class="link-top-brackets">
-            <span class="link-top-triangle"></span>
-        </span>
-        <span class="link-top-tooltip">Du-te la inceputul paginii</span>
-    </a>
-</body>
-</html>
+<%- include('../fragmente/footer') %>
